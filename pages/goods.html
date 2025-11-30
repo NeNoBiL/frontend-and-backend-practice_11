@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Товары - X2App</title>
+    <link rel="stylesheet" href="../style/styles.css">
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <h1 class="header__title">Товары</h1>
+        </header>
+
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="news.html">Новости</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="practices.html">Практики</a>
+                </li>
+                <li class="nav__item nav__item--active">
+                    <a class="nav__link" href="goods.html">Товары</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main">
+            <section class="goods">
+                <h2 class="goods__title">Наши товары</h2>
+                <p class="goods__subtitle">Каталог товаров - Мы предлагаем широкий ассортимент качественных товаров по доступным ценам</p>
+                
+                <div class="goods__grid">
+                    <article class="product-card">
+                        <div class="product-card__image">
+                            <img src="../images/web-dev.jpg" alt="Веб-разработка" class="product-card__img">
+                        </div>
+                        <h3 class="product-card__title">Веб-разработка</h3>
+                        <p class="product-card__desc">Полный цикл создания веб-приложений с использованием современных технологий и лучших практик</p>
+                        <div class="product-card__price">от 25 000 ₽</div>
+                        <button class="product-card__button">Заказать</button>
+                    </article>
+
+                    <article class="product-card product-card--popular">
+                        <div class="product-card__badge">Популярный</div>
+                        <div class="product-card__image">
+                            <img src="../images/mobile-app.jpg" alt="Мобильное приложение" class="product-card__img">
+                        </div>
+                        <h3 class="product-card__title">Мобильное приложение</h3>
+                        <p class="product-card__desc">Разработка кроссплатформенных приложений для iOS и Android с нативным пользовательским опытом</p>
+                        <div class="product-card__price">от 50 000 ₽</div>
+                        <button class="product-card__button">Заказать</button>
+                    </article>
+
+                    <article class="product-card product-card--discount">
+                        <div class="product-card__badge">-20%</div>
+                        <div class="product-card__image">
+                            <img src="../images/ui-design.jpg" alt="Дизайн интерфейсов" class="product-card__img">
+                        </div>
+                        <h3 class="product-card__title">Дизайн интерфейсов</h3>
+                        <p class="product-card__desc">Создание UX/UI дизайна для вашего проекта с учетом пользовательского опыта и современных трендов</p>
+                        <div class="product-card__price">
+                            <span class="product-card__old-price">30 000 ₽</span>
+                            <span class="product-card__new-price">24 000 ₽</span>
+                        </div>
+                        <button class="product-card__button">Заказать</button>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-card__image">
+                            <img src="../images/support.jpg" alt="Техническая поддержка" class="product-card__img">
+                        </div>
+                        <h3 class="product-card__title">Техническая поддержка</h3>
+                        <p class="product-card__desc">Обслуживание и развитие существующих проектов, исправление ошибок и добавление нового функционала</p>
+                        <div class="product-card__price">от 15 000 ₽/мес</div>
+                        <button class="product-card__button">Заказать</button>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p class="footer__text">© 2024 X2App. Все права защищены.</p>
+        </footer>
+    </div>
+</body>
+</html>

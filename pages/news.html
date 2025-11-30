@@ -3,17 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Новости - Портфолио Темираев Максим</title>
+    <title>Новости - X2App</title>
     <link rel="stylesheet" href="../style/styles.css">
 </head>
-<body data-theme="light">
+<body>
     <div class="page">
         <header class="header">
-            <h1 class="header__title">Портфолио Темираев Максим</h1>
-            <button class="theme-switcher" id="themeSwitcher">
-                <span class="theme-switcher__icon">🌙</span>
-                <span class="theme-switcher__text">Темная тема</span>
-            </button>
+            <h1 class="header__title">Новости</h1>
         </header>
 
         <nav class="nav">
@@ -23,6 +19,12 @@
                 </li>
                 <li class="nav__item nav__item--active">
                     <a class="nav__link" href="news.html">Новости</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="practices.html">Практики</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="goods.html">Товары</a>
                 </li>
                 <li class="nav__item">
                     <a class="nav__link" href="contacts.html">Контакты</a>
@@ -35,24 +37,50 @@
                 <h2 class="news__title">Последние новости</h2>
                 <div class="news__list">
                     <article class="news-item">
-                        <h3 class="news-item__title">Создал первое портфолио</h3>
-                        <time class="news-item__date">21 ноября 2024</time>
-                        <p class="news-item__text">Завершил работу над своим первым сайтом-портфолио с использованием HTML, CSS и JavaScript.</p>
+                        <h3 class="news-item__title">Запуск нового проекта</h3>
+                        <div class="news-item__meta">
+                            <span class="news-item__date">01.01.2025 12:00</span>
+                            <span class="news-item__author">Автор: RX-Acriphas</span>
+                        </div>
+                        <p class="news-item__text">
+                            Мы рады сообщить о запуске нового проекта, который заменит подход к веб-разработке. 
+                            Проект включает в себя современные технологии и инновационные решения.
+                        </p>
+                        <button class="news-item__button">Читать далее...</button>
                     </article>
+
                     <article class="news-item">
-                        <h3 class="news-item__title">Изучаю современный фронтенд</h3>
-                        <time class="news-item__date">15 ноября 2024</time>
-                        <p class="news-item__text">Начал углубленное изучение современных технологий веб-разработки и методологии БЭМ.</p>
+                        <h3 class="news-item__title">Обновление дизайна</h3>
+                        <div class="news-item__meta">
+                            <span class="news-item__date">15.12.2024 14:30</span>
+                            <span class="news-item__author">Автор: Иванов Иван</span>
+                        </div>
+                        <p class="news-item__text">
+                            Представляем вашему вниманию обновленный дизайн нашего портала. 
+                            Мы улучшили пользовательский опыт и добавили новые функции.
+                        </p>
+                        <button class="news-item__button">Читать далее...</button>
+                    </article>
+
+                    <article class="news-item">
+                        <h3 class="news-item__title">Новые курсы по программированию</h3>
+                        <div class="news-item__meta">
+                            <span class="news-item__date">10.11.2024 09:15</span>
+                            <span class="news-item__author">Автор: Петров Петр</span>
+                        </div>
+                        <p class="news-item__text">
+                            Открыт набор на новые курсы по веб-разработке. Изучите современные технологии 
+                            и станьте востребованным специалистом.
+                        </p>
+                        <button class="news-item__button">Читать далее...</button>
                     </article>
                 </div>
             </section>
         </main>
 
         <footer class="footer">
-            <p class="footer__text">&copy; 2024 Портфолио Темираев Максим</p>
+            <p class="footer__text">© 2024 Темираев Максим. Все права защищены.</p>
         </footer>
     </div>
-
-    <script src="../js/theme-switcher.js"></script>
 </body>
 </html>

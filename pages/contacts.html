@@ -3,17 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакты - Портфолио Темираев Максим</title>
+    <title>Контакты - X2App</title>
     <link rel="stylesheet" href="../style/styles.css">
+    <style>
+        /* Стили для модального окна с использованием CSS переменных */
+        dialog::backdrop {
+            background: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.3s ease;
+        }
+
+        dialog {
+            border: none;
+            border-radius: var(--radius-lg);
+            padding: 0;
+            box-shadow: var(--shadow-xl);
+            animation: slideIn 0.3s ease;
+            max-width: 500px;
+            width: 90vw;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+        }
+
+        .modal__header {
+            background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%);
+            color: var(--color-white);
+            padding: var(--space-2xl);
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            margin: 0;
+        }
+
+        .modal__header h2 {
+            margin: 0;
+            color: var(--color-white);
+            font-size: var(--font-size-2xl);
+        }
+
+        .modal__content {
+            padding: var(--space-2xl);
+        }
+
+        .form__group {
+            margin-bottom: var(--space-lg);
+        }
+
+        .form__label {
+            display: block;
+            margin-bottom: var(--space-sm);
+            font-weight: 600;
+            color: var(--color-dark);
+        }
+
+        .form__input,
+        .form__select,
+        .form__textarea {
+            width: 100%;
+            padding: var(--space-md);
+            border: 2px solid var(--color-light);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-base);
+            transition: border-color var(--transition-base);
+            box-sizing: border-box;
+            font-family: var(--font-family);
+        }
+
+        .form__input:focus,
+        .form__select:focus,
+        .form__textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .form__textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .modal__actions {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: flex-end;
+            margin-top: var(--space-2xl);
+        }
+
+        .btn {
+            padding: var(--space-md) var(--space-2xl);
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: var(--font-size-base);
+            transition: all var(--transition-base);
+            font-weight: 600;
+            font-family: var(--font-family);
+        }
+
+        .btn--primary {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: var(--color-white);
+        }
+
+        .btn--primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn--secondary {
+            background: var(--color-light);
+            color: var(--color-dark);
+            border: 2px solid var(--color-gray-light);
+        }
+
+        .btn--secondary:hover {
+            background: var(--color-gray-light);
+        }
+
+        .required {
+            color: var(--color-error);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        /* Адаптивность */
+        @media (max-width: 600px) {
+            dialog {
+                margin: 0;
+                width: 95vw;
+            }
+
+            .modal__actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
-<body data-theme="light">
+<body>
     <div class="page">
         <header class="header">
-            <h1 class="header__title">Портфолио Темираев Максим</h1>
-            <button class="theme-switcher" id="themeSwitcher">
-                <span class="theme-switcher__icon">🌙</span>
-                <span class="theme-switcher__text">Темная тема</span>
-            </button>
+            <h1 class="header__title">X2App - Контакты</h1>
         </header>
 
         <nav class="nav">
@@ -24,6 +172,12 @@
                 <li class="nav__item">
                     <a class="nav__link" href="news.html">Новости</a>
                 </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="practices.html">Практики</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="goods.html">Товары</a>
+                </li>
                 <li class="nav__item nav__item--active">
                     <a class="nav__link" href="contacts.html">Контакты</a>
                 </li>
@@ -32,29 +186,180 @@
 
         <main class="main">
             <section class="contacts">
-                <h2 class="contacts__title">Контакты</h2>
-                <div class="contacts__list">
-                    <div class="contact-item">
-                        <h3 class="contact-item__title">Email</h3>
-                        <p class="contact-item__value">temiraev.m.a@edu.mirea.ru</p>
-                    </div>
-                    <div class="contact-item">
-                        <h3 class="contact-item__title">Телефон</h3>
-                        <p class="contact-item__value">+7 (999) 123-45-67</p>
-                    </div>
-                    <div class="contact-item">
-                        <h3 class="contact-item__title">GitHub</h3>
-                        <p class="contact-item__value">github.com/NeNoBiL</p>
-                    </div>
+                <h2 class="contacts__title">Наши контакты</h2>
+                
+                <div class="contacts__grid">
+                    <article class="contact-card">
+                        <h3 class="contact-card__title">Электронная почта</h3>
+                        <p class="contact-card__value">temiraev.m.a@edu.mirea.ru</p>
+                        <p class="contact-card__desc">Основной канал связи для общих вопросов</p>
+                    </article>
+
+                    <article class="contact-card">
+                        <h3 class="contact-card__title">Физический адрес</h3>
+                        <p class="contact-card__value">г. Москва, ул. Пушкина, д. Колотушкина</p>
+                        <p class="contact-card__desc">Принимаем гостей по предварительной записи</p>
+                    </article>
+
+                    <article class="contact-card">
+                        <h3 class="contact-card__title">Телефон</h3>
+                        <p class="contact-card__value">+7 (495) 123-45-67</p>
+                        <p class="contact-card__desc">Рабочие дни с 9:00 до 18:00</p>
+                    </article>
+
+                    <article class="contact-card">
+                        <h3 class="contact-card__title">Время работы</h3>
+                        <p class="contact-card__value">Пн-Пт: 9:00-18:00</p>
+                        <p class="contact-card__desc">Суббота и воскресенье - выходные</p>
+                    </article>
+
+                    <article class="contact-card">
+                        <h3 class="contact-card__title">Социальные сети</h3>
+                        <p class="contact-card__value">VK, Telegram, WhatsApp</p>
+                        <p class="contact-card__desc">Быстрая связь через мессенджеры</p>
+                    </article>
+
+                    <article class="contact-card">
+                        <h3 class="contact-card__title">Техническая поддержка</h3>
+                        <p class="contact-card__value">support@gmail.ru</p>
+                        <p class="contact-card__desc">Круглосуточная поддержка пользователей</p>
+                    </article>
+                </div>
+
+                <!-- Кнопка для открытия модального окна -->
+                <div class="contacts__actions">
+                    <button class="btn btn--primary contacts__button" onclick="contactModal.showModal()">
+                        Связаться с нами
+                    </button>
                 </div>
             </section>
         </main>
 
         <footer class="footer">
-            <p class="footer__text">&copy; 2024 Портфолио Темираев Максим</p>
+            <p class="footer__text">© 2024 X2App. Все права защищены.</p>
         </footer>
+
+        <!-- Модальное окно для формы обратной связи -->
+        <dialog id="contactModal">
+            <div class="modal__header">
+                <h2>Форма обратной связи</h2>
+            </div>
+
+            <div class="modal__content">
+                <form id="feedbackForm" method="dialog">
+                    <div class="form__group">
+                        <label for="name" class="form__label">
+                            Имя <span class="required">*</span>
+                        </label>
+                        <input type="text" id="name" name="name" required 
+                               class="form__input" placeholder="Введите ваше имя">
+                    </div>
+
+                    <div class="form__group">
+                        <label for="phone" class="form__label">
+                            Телефон <span class="required">*</span>
+                        </label>
+                        <input type="tel" id="phone" name="phone" required 
+                               class="form__input" placeholder="+7 (XXX) XXX-XX-XX">
+                    </div>
+
+                    <div class="form__group">
+                        <label for="email" class="form__label">
+                            Электронная почта <span class="required">*</span>
+                        </label>
+                        <input type="email" id="email" name="email" required 
+                               class="form__input" placeholder="example@mail.ru">
+                    </div>
+
+                    <div class="form__group">
+                        <label for="category" class="form__label">
+                            Категория обращения <span class="required">*</span>
+                        </label>
+                        <select id="category" name="category" required class="form__select">
+                            <option value="">Выберите категорию</option>
+                            <option value="technical">Техническая поддержка</option>
+                            <option value="commercial">Коммерческое предложение</option>
+                            <option value="cooperation">Сотрудничество</option>
+                            <option value="complaint">Жалоба</option>
+                            <option value="suggestion">Предложение</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+
+                    <div class="form__group">
+                        <label for="message" class="form__label">
+                            Текст обращения <span class="required">*</span>
+                        </label>
+                        <textarea id="message" name="message" required 
+                                  class="form__textarea" 
+                                  placeholder="Опишите вашу проблему или вопрос..."></textarea>
+                    </div>
+
+                    <div class="modal__actions">
+                        <!-- Кнопка отмены с автоматическим закрытием через form method="dialog" -->
+                        <button type="submit" class="btn btn--secondary" onclick="contactModal.close()">Отмена</button>
+                        <!-- Кнопка отправки с обработкой через JavaScript -->
+                        <button type="button" class="btn btn--primary" onclick="submitForm()">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
     </div>
 
-    <script src="../js/theme-switcher.js"></script>
+    <script>
+        // Функция для отправки формы
+        function submitForm() {
+            const form = document.getElementById('feedbackForm');
+            const formData = new FormData(form);
+
+            // Простая валидация
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            // Собираем данные формы
+            const data = {
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                email: formData.get('email'),
+                category: formData.get('category'),
+                message: formData.get('message')
+            };
+
+            // В реальном приложении здесь был бы AJAX-запрос
+            console.log('Данные формы:', data);
+
+            // Показываем уведомление об успешной отправке
+            alert('Спасибо! Ваше обращение отправлено. Мы свяжемся с вами в ближайшее время.');
+
+            // Закрываем модальное окно
+            contactModal.close();
+
+            // Очищаем форму
+            form.reset();
+        }
+
+        // Закрытие модального окна по клику на фон
+        document.getElementById('contactModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                this.close();
+            }
+        });
+
+        // Обработка отправки формы через Enter (предотвращаем стандартное поведение)
+        document.getElementById('feedbackForm').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter' && event.target.type !== 'textarea') {
+                event.preventDefault();
+            }
+        });
+
+        // Закрытие модального окна по нажатию Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                contactModal.close();
+            }
+        });
+    </script>
 </body>
 </html>
